@@ -1,0 +1,21 @@
+import tweepy
+
+consumer_key = "6GCMtaP5kL4JBWkX3TwhqTwGi"
+consumer_secret = "lShYeEuRTcFNRLHCCvBA18XIopJQjv8YPPRRaIND63dGCnogvb"
+access_token = "1366584297898016768-JXwN3nuCZ1U9i0t5DaXkhmWMLZtLmX"
+access_token_secret = "VtZnhDsaOOHB80VGiRMBl9IHRQbMqdsu4IzdAUwirc2OP"
+
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+
+auth.set_access_token(access_token, access_token_secret)
+
+api = tweepy.API(auth)
+
+query = "tamsimone"
+
+language = "en"
+
+results = api.search(q=query, lang=language)
+
+for tweet in results:
+    print(tweet.user.screen_name, "Tweeted: ", tweet.text)
